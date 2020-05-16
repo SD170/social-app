@@ -19,7 +19,7 @@
         <div class="container ">
             <div class="divtra div5 text caveat">
                 
-                <strong>{{i.title}}</strong><br>
+                <h4>{{i.title}}</h4><br>
                 {{i.body}}<br>
                 <p>Posted by, <a href="{% url 'profilepage' i.id %}">{{i.author.username}}</a><br>
                 <form action="{% url 'posts:like_post' %}" method='POST'>

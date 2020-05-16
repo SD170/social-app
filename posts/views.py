@@ -20,16 +20,26 @@ def post_view(request):
     # all_posts = Post.objects.all()
     user = request.user
     all_friends = user.friendlist_set.all() | user.profile2.all()
-    new_posts = None
+    # new_posts = None
+    new_posts = ''
     for i in all_friends:
         new_posts = i.profile1.author.all() | i.profile2.author.all()
+    # new_posts=Post.objects.all().first()
+
+    # for i in all_friends:
+    #     for j in i.profile1.author.all():
+    #         new_posts = new_posts['post'].append(j)
+    # for i in all_friends:
+    #     for j in i.profile2.author.all():
+    #         new_posts = new_posts['post'].append(j)
+
 
     print('other',new_posts)
     try:
         new_posts = new_posts | user.author.all()
     except:
         new_posts=user.author.all()
-    # print('my',new_posts)
+    print('my',new_posts)
 
 
     context = {
