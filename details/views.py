@@ -57,7 +57,7 @@ def login_page(request):
 
     if request.user.is_authenticated:
         user=request.user
-        return HttpResponse("Your'e alrady logged in")
+        return HttpResponse("Your'e alrady logged in. Goto 'https://sd17-social-live.herokuapp.com'")
 
 
     if checked_user is not None:
