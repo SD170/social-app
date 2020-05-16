@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 's@48^eok%9ty9@88(l5y5o$)kc1-7a1#um24s$!-hd$+=%4j4('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['sd17-social-live.herokuapp.com','127.0.0.1']
 
