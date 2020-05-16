@@ -1,0 +1,42 @@
+{% extends 'details/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+.parent{
+grid-column-gap: 2px;
+grid-row-gap: 2px; 
+}
+
+
+
+</style>
+<link rel="stylesheet" type="text/css" href="{% static 'css/blink.css' %}">
+
+    <h1 class="blink">Welcome, {{user.username}}</h1>
+    
+    <div class="parent">
+
+        <div class="div1 item fatface" onclick="location.href='{% url 'posts:post_list' %}'"> 
+            <h1>News Feed</h1>
+        </div>
+
+        <div class="div2 item fatface" onclick="location.href='{% url 'friendlist' %}'">
+            <h1>Friends</h1>
+        </div>
+
+        <div class="div3 item fatface" onclick="location.href='{% url 'friendrequest' %}'">
+            <h1> Requests</h1>
+        </div>
+
+        <div class="div4 item fatface" onclick="location.href='{% url 'posts:create_post' %}'">
+            <h1> Write Your own Post</h1>
+        </div>
+        <div class="div5 item fatface" onclick="location.href='{% url 'newfriends' %}'">
+            <h1>Find Friends</h1>
+        </div>
+    </div> 
+
+{% endblock %}
+    

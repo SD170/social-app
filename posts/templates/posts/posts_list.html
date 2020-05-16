@@ -1,0 +1,47 @@
+{% extends 'details/main.html' %}
+
+{% block content %}
+<style>
+        
+    .text{
+        text-align:justify;
+        padding-left: 1%;
+        padding-top: 5%;
+        padding-bottom: 1%;
+        padding-right: 1%;
+        cursor:default;
+
+    }
+
+</style>
+    {% if all_posts.count %}
+        {% for i in all_posts %}
+        <div class="container ">
+            <div class="divtra div5 text caveat">
+                
+                <strong>{{i.title}}</strong><br>
+                {{i.body}}<br>
+                <p>Posted by, <a href="{% url 'profilepage' i.id %}">{{i.author.username}}</a><br>
+                <form action="{% url 'posts:like_post' %}" method='POST'>
+                    {% csrf_token %}
+                    <input type="hidden" name='id' value="{{i.id}}">
+                    {% if user not in i.liked.all %}
+                        <button class='btn btn-outline-primary' type ='submit'>Like</button>
+                    {% else %}
+                        <button class='btn btn-outline-secondary' type ='submit'>Unlike</button>
+                    {% endif %}
+                    <strong>{{i.liked.all.count}} Likes</strong><br>
+                </form>
+                </p>
+            </div>
+            
+        </div>
+        {% endfor %}
+    {% else %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/doodle.css' %}">
+
+        <a class="btn btn-dark btn-lg" href="{% url 'posts:create_post' %}">Write a post</a>
+            <h1 class="doodle">Sorry, No post to see</h1>
+    {% endif %}
+{% endblock %}

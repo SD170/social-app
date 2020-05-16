@@ -1,0 +1,47 @@
+{% extends 'details/main.html' %}
+
+{% block content %}
+{% ifequal friend_request_recieved.count 0 %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/doodle.css' %}">
+  <style>
+    .doodle{
+      font: normal 100px Varela Round, sans-serif;
+
+    }
+  </style>
+
+    <h1 class="doodle">There's no new friend-requests for you </h1>
+    {% else %}
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Full Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Accept</th>
+            <th scope="col">Reject</th>
+            <th scope="col">Profile</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in friend_request_recieved %}
+          <tr>
+            <td>{{i.sender.profile.full_name}}</td>
+            <td>{{i.sender.username}}</td>
+            <form method="POST">
+            {% csrf_token %}
+            <td><input type="submit" class="btn btn-warning" name="accept" value="accept"></td>
+            <td><input type="submit" class="btn btn-danger" name="reject" value="reject"></td>
+            <input type="hidden" name="sender" value={{i.sender.id}}>
+            <input type="hidden" name="reciever" value={{i.reciever.id}}>   
+            </form>
+            <td><a class='btn btn-secondary'href="{% url 'profilepage' i.sender.id %}">Visit</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    
+    
+    
+    {% endifequal %}
+{% endblock %}

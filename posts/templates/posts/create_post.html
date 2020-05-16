@@ -1,0 +1,37 @@
+{% extends 'details/main.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+    
+    .text{
+        text-align:center;
+        padding-left: 1%;
+        
+        padding-right: 1%;
+        
+    }
+    
+    
+</style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/glitch.css' %}">
+    <br>
+<div class="text_container">
+    <h1 class="glitch">Write a post :</h1>
+    <h1 class="glitch">Write a post :</h1>
+    <h1 class="glitch">Write a post :</h1>
+</div>
+<div class="container ">
+    <div class="divtra div5 text ">
+<form action="" method="POST">{% csrf_token %}
+    <label for="title" class='form-group'><h3 class="cinzel">Title:</h3></label><br>
+    <input class='form-control'type="text" id="title" name="title" required><br>
+    <label class="form-group"for="description"><h3 class="cinzel">Description:</h3></label><br>
+    <input class="form-control form-control-lg"type="text" id="description" name="description" required><br>
+    <button class="btn btn-warning btn-lg btn-block" type ='submit'>Submit</button>
+</form>
+</div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,46 @@
+{% load static %}
+<style>
+    .hello-msg{
+      font-size: 18px;
+      color: #fff;
+      margin-right: 20px;
+    }
+  </style>
+  
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFFF63;">
+    <a class="navbar-brand cinzel" href="{% url 'home' %}">Home</a>
+    <!-- <img src="{% static 'images/logo.png' %}"> -->
+    {% if request.user.is_authenticated %}
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav cinzel">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'profilepage' request.user.id %}">Profile</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'friendlist' %}">Friends</a>
+          </li>          
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'friendrequest' %}">Friend Request</a>
+          </li>
+          <li class="nav-item active">
+           <a class="nav-link" href="{% url 'newfriends' %}">Find Friends</a>
+         </li>
+         <li class="nav-item active">
+           <a class="nav-link" href="{% url 'posts:post_list' %}">See Posts</a>
+         </li>
+         <li class="nav-item active">
+           <a class="nav-link" href="{% url 'posts:create_post' %}">Write Posts</a>
+         </li>
+      </ul>
+    </div>
+  
+    <!-- <span class="hello-msg">Hello, {{request.user}}</span> -->
+    <span ><a  class=" nav-link cinzel" href="{% url 'logout' %}">Logout</a></span>
+    {%else%}
+    {% endif %}
+  
+  </nav>
+  

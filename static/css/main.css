@@ -1,0 +1,107 @@
+
+.wrap{
+    cursor: pointer;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    grid-gap: 2px;
+    grid-template-rows: 1fr ;
+    
+}
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+        
+}
+
+.div1 { grid-area: 1 / 2 / 2 / 4; }
+.div2 { grid-area: 1 / 4 / 2 / 5; }
+.div3 { grid-area: 2 / 2 / 3 / 3; }
+.div4 { grid-area: 2 / 3 / 3 / 5; }
+.div5 { grid-area: 3 / 2 / 4 / 5; } 
+
+.divtra{
+        cursor:pointer;
+        text-align: center;
+        width: auto;
+        height: auto;
+        padding-top: 70px;
+        padding-bottom: 70px;
+        /* border-radius:4px; */
+        border:.009px solid rgb(0, 0, 0);
+        transition: all 0.3s linear;
+        background-color: #FFFF63;
+         
+}
+.divtra:hover{
+    -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+}
+body { 
+   /* background: linear-gradient(89deg, #e4f598 0%, #81fa49 100%);
+
+  background-size: cover; */
+  background-color: #ffffff;
+
+  /* position:relative; */
+
+}
+
+
+.item:hover {
+    background-color: #222;
+    color: #FFFF63;
+    transition: all 0.25s ease;
+  }
+  
+  .item {
+    transition: all 0.25s ease;
+    cursor:pointer;
+        text-align: center;
+        width: auto;
+        height: auto;
+        padding-top: 70px;
+        padding-bottom: 70px;
+        /* border-radius:4px; */
+        border:1px solid rgb(0, 0, 0);
+        background-color: #FFFF63;
+
+  }
+
+
+/* h1{
+    
+    margin: 1em 0 0.5em 0;
+	color: #313de7;
+	font-weight: normal;
+	font-family: 'Fjalla One', sans-serif;   
+	line-height: 42px;
+	text-transform: uppercase;
+    text-shadow: 0 2px white, 0 3px #777;
+    
+} */
+.caveat{
+    
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    /* font-size: 20px; */
+}
+.fatface{
+    font-family: 'Abril Fatface', cursive;
+
+}
+
+.cinzel{
+ 
+    font-family: 'Cinzel', serif;
+}
+.orbitron{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+}

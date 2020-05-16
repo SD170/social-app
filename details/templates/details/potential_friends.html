@@ -1,0 +1,31 @@
+{% extends 'details/main.html' %}
+
+{% block content %}
+
+    {% ifequal no_of_friends 0 %}
+      {% load static %}
+      <link rel="stylesheet" type="text/css" href="{% static 'css/doodle.css' %}">
+
+        <h1 class="doodle">Sorry, There's no new friends to suggest</h1>
+    {% else %}
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Full Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Profile</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in new_friends %}
+          <tr>
+            <td>{{i.profile.full_name}}</td>
+            <td>{{i.username}}</td>
+            <td><a class='btn btn-secondary' href="{% url 'profilepage' i.id %}">Visit</a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    {% endifequal %}
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'details/main.html' %}
+
+{% block content %}
+<style>
+  .text{
+        text-align:justify;
+        padding-left: 1%;
+        padding-right: 1%;
+        padding-bottom: 50px;
+        width: auto;
+
+    }
+    .parent {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      }
+
+    .div1 { grid-area: 1 / 2 / 2 / 5; } 
+</style>
+<center><h1 class="orbitron">Registration Form</h1></center>
+<div class="container parent ">
+  <div class="divtra div1 text cinzel">
+<form method="POST" class="sign-up-form">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    <center>
+      <button type="submit" class="btn btn-lg btn-dark">Submit</button>
+      {{user_form.errors}}
+      <div>alrady have an account <a href="{% url 'login' %}">Login Here</a></div>
+    </center>
+  </form>
+</div>
+</div>
+{% endblock %}
